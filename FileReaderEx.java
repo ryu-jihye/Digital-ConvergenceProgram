@@ -1,4 +1,4 @@
-package May_Second_ch03;
+package May_Second_Review;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,7 +10,7 @@ public class FileReaderEx {
 		try {
 			in = new FileReader("c:/windows/system.ini");
 			int c;
-			while ((c = in.read()) != -1) {
+			while((c= in.read()) != -1)  {
 				System.out.print((char)c);
 			}
 			in.close();
