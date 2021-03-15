@@ -10,24 +10,17 @@ import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class FileCopyEx2 {
+public class ReadNaver {
 
 	public static void main(String[] args) {
-		String urlStr = "https://en.wikipedia.org/wiki/Main_Page";
+		String urlStr = "https://github.com/";
 		try {
 			URL url = new URL(urlStr);
-			System.out.println("프로토콜 : " + url.getProtocol());
-			System.out.println("호스트 : " + url.getHost());
-			System.out.println("포트번호 : " + url.getDefaultPort());
-			System.out.println("Path : " + url.getPath());
-			System.out.println("QueryString : " + url.getQuery());
-			System.out.println("Reference : " + url.getRef());
-		
+			
 			InputStream is =url.openStream();
 			BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 			PrintWriter pw = new PrintWriter(System.out, true);
-			//FileWriter : 파일로 보낼 떄 한글이 꺠짐
-			PrintWriter fw = new PrintWriter(new FileOutputStream("c:/temp/aaa2.html"));
+			PrintWriter fw = new PrintWriter(new FileOutputStream("c:/temp/github.html"));
 			
 			String line = "";
 			while ((line = br.readLine()) != null) {

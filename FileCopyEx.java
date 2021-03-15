@@ -1,25 +1,37 @@
-package May_Second_ch03;
+package May_third01_Review;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class FileCopyEx {
 
 	public static void main(String[] args) {
-		String src = "c:/windows/system.ini"; //원본 파일
-		String dest = "c:/temp/system_copy.ini"; //복사 파일
+		File src = new File("c:/windows/system.ini");
+		File dest = new File("c:/temp/system.txt");
+		
+		FileReader fr = null;
+		FileWriter fw = null;
+		BufferedReader br = null;
+		BufferedWriter bw = null;
+		int c;
+		
 		try {
-			FileInputStream fis = new FileInputStream(src); //읽을 파일
-			FileOutputStream fos = new FileOutputStream(dest); //복사할 파일
- 			
-			int c;
-			while ((c = fis.read()) != -1)
-				fos.write(c); 
-		}catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
+			fr = new FileReader(src);
+			fw = new FileWriter(dest);
+			br = new BufferedReader(fr);
+			bw = new BufferedWriter(fw);
+		
+			while((c= br.read()) != -1) {
+				bw.write((char)c);
+			}
+			fr.close(); fw.close();
+			br.close(); bw.close();
+		} catch(IOException e) {
+			System.out.println("설정상 오류입니다.");
 		}
 
 	}
