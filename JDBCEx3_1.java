@@ -6,9 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class JDBCEx3 { //특정 열(bookid)만 검색
-						// Statement stmt3 = conn.createStatement();
-						//ResultSet rs3 = stmt3.executeQuery("select bookid from Book");
+public class JDBCEx3_1 {//특정 열(cafename, price)만 검색
+						//
 
 	public static void main(String[] args) {
 		try {
@@ -18,10 +17,11 @@ public class JDBCEx3 { //특정 열(bookid)만 검색
 			
 			Statement stmt3 = conn.createStatement();
 			
-			ResultSet rs3 = stmt3.executeQuery("select bookid from Book");
+			ResultSet rs3 = stmt3.executeQuery("select cafename, price from cafe");
 			
 			while(rs3.next()) { //출력값 넣는 것 잊지 말기
-				System.out.println(rs3.getString("BOOKID"));
+				System.out.print(rs3.getString("cafename"));
+				System.out.println(rs3.getString("price"));
 		}
 		
 			
