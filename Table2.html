@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<table>
+	<captin>제주특별자치도 학교현황(2015.4.1)</captin>
+	<thead>
+		<tr>
+			<th>구분</th>
+			<th>학교수</th>
+			<th>학급수</th>
+			<th>학생수</th>
+			<th>교원수</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>유치원</th>
+			<td>117</td>
+			<td>252</td>
+			<td>5,547</td>
+			<td>474</td>
+		</tr>
+		<tr> .... </tr>
+		<tr> .... </tr>
+		<tr> .... </tr>
+		<tr> .... </tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>합계</th>
+			<td>304</td>
+			<td>3,437</td>
+			<td>86,954</td>
+			<td>6,111</td>
+		</tr>
+	</tfoot>
+</table>
+
+
+<table>
+	<caption>colgroup 연습</caption>
+	<colgroup>
+		<col>
+		<col span="2" style="background-color:blue;">
+		<col style="background-color:yellow">
+	</colgroup>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+
+
+<table>
+<caption>1인당 연간 설탕 소비량
+<small>(단위:kg)</small></caption>
+<colgroup>
+	<col style="background:#eee;">
+	<col>
+</colgroup>
+<tr>
+	<th>WHO권장량</th>
+	<td>18.25</td>
+</tr>
+....
+</table>
+
+
+<!-- 학력 -->
+<section> 
+	<h2 class="subtitle">Education</h2>
+	<table>
+		<caption>학력 사항</caption>
+		<thead>
+			<tr>
+				<th>출신학교</th>
+				<th>전공</th>
+				<th>기간</th>
+				<th>구분</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>ㅇㅇ대학교</td>
+				<td> - </td>
+				<td>2001.3 ~ 2004.2</td>
+				<td>졸업</td>
+			</tr>
+		</tbody>
+		
+<style>
+	table {
+		width:70% /*표의 너비 */
+		border:1px soilid #2222; /*1픽셀짜리 표 테두리*/
+		border-collapse:collapse; /*중볻되는 표와 셀의 테두리를 한 줄로 표시*/
+	}
+	thead {
+		background:#eee; /*제목 행의 배경색*/
+	}
+	th, td {
+		border:1px solid #ccc; /*1픽셀짜리 셀 테두리*/
+		padding:5px; /*셀 테두리와 셀 내용 사이의 여백(패딩)*/
+		font-size:0.8em; /*셀의 글자 크기*/
+	}
+</style>		
+	</table>
+</section>
+
+</body>
+</html>
