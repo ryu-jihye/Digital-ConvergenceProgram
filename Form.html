@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- get방식 : url주소 뒤에 패러미터 붙여서 실행 -->
+<form method = "GET" action="input.html">
+	<input type="text" name="input"/>
+	<input type="submit"> <!-- submit을 눌러야 서버에 전달됨 -->
+</form>
+
+
+<form action="input.html">
+		<input type ="text" name="name"/><br>
+		<input type ="text" name="pwd"/><br>
+		<input type = "button" value="눌러봐" name="bt1"/>
+		<input type="submit" value="서버로 전송">
+</form>
+
+<form>
+	이름:<input type="text" name="name"><br>
+	학번:<input type="text" name="number" size=10>
+	패스워드 : <input type="password" name="pass">
+	
+	성별:
+	<input type="radio" name="gender" value="male">남성
+	<input type="radio" name="gender" value="female">여성
+	
+	과일선택
+	<input type="checkbox" name="fruits" value="appple" checked>사과
+	<input type="checkbox" name="fruits" value="grape">포도
+	<input type="checkbox" name="fruits" value="peach">복숭아
+	
+	<input type="submit">
+	<input type="reset" value="초기화">
+
+	<input type="button" value ="계산" onclick="alert('1000원임')"><br/>
+	
+	<form name="input" action="getfeedback.html" method="get">
+		너님의 의견<br/>
+		<textarea name="feedback rows="5" cols="50"></textarea>
+	</form>
+	
+	<form name="input" action="getfeedback.html" method="get">
+		<select name="food">
+		<option value = "korean" selected>한식</option>
+		<option value = "chinese">중식</option>
+		<option value = "wester">양식</option>
+		</select>
+	</form>
+	
+	<form name="input" action="getfeedback.html" method="get">
+		<fieldset>
+			<legend>인적사항 입력</legend>
+			이름 : <input type = "text"><br>
+			전화번호 : <input type = "text"><br>
+			주소 : <input type = "text">
+		</fieldset>
+	</form>
+
+	<form name="input" action="" method="get">
+		<label for="male">남성</label>
+		<input type="radio" value="남성" name= "gender" id="male"><br>
+		<label for="female">여성</label>
+		<input type="radio" value="여성" name= "gender" id="female"><br>
+		<input type = "submit" value = "제출">
+	</form>
+	
+	<form enctype="multipart/form-data">
+			<input type="file" accept="image/jpg, iamge/gif">
+	</form>
+	<input type="hidden">
+</body>
+</html>
