@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- radio : 중복 선택 불가 -->
+<fieldSet>
+	<legend>신청과목</legend>
+	<p>이 달에 신청할 과목을 선책하세요(1과목만 가능)</p>
+	<label><input type="radio" name="subject" 
+	value="speaking">회화</label>
+	<label><input type="radio" name="subject" 
+	value="grammer">문법</label>
+	<label><input type="radio" name="subject" 
+	value="writing">작문</label>
+</fieldSet>
+
+<!-- checobox :중복 선택 가능 -->
+<fieldSet>
+	<legend>메일링</legend>
+	<p>메일로 받고 싶은 뉴스 주제를 선택해 주세요(복수 선택 가능)</p>
+	<label><input type="checkbox" name="mailing1" 
+	value="news">해외 단신</label>
+	<label><input type="checkbox" name="mailing2" 
+	value="dialog">5분 회화</label>
+	<label><input type="checkbox" name="mailing3" 
+	value="pops">모닝 팝스</label>
+</fieldSet>
+
+<!-- 색상 선택 폼 삽입 -->
+<p>올해 과 티(T)를 만들려고 합니다. 원하는 색상을 추천해 주세요.</p>
+<label>선호색상 <input type="color" value="#00ff00"></label>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="css/Order_Result.css"></link>
+</head>
+<body>
+
+<!-- 1) 주문서 영역 나누기 -->
+	<div class="container">
+	<h1>상품 주문서</h1>
+	<form>
+		<fieldSet>
+			<legend>개인정보</legend>
+			<!-- 2)-1 폼 요소 추가하기 -->	
+			<ul>
+			<li>
+				<label for="uname" class="title">이름</label>
+				<input type="text" id="uname" placeholder="여백없이 입력" required>
+			</li>
+			<li>
+				<label for="tel1" class="title">연락처</label>
+				<input type="tel" id="tel1" placeholder="연락가능한 번호">
+			</li>
+			</ul>
+		</fieldSet>
+		<fieldSet>
+			<legend>배송지정보</legend>
+			<!-- 2)-2 폼 요소 추가하기 -->	
+			<ul>
+			<li>
+				<label for="addr" class="title">주소</label>
+				<input type="text" size="40" id="addr" required>
+			</li>
+			<li>
+				<label for="tel2" class="title">전화번호</label>
+				<input type="tel" id="tel2" required>
+			</li>
+			<li>
+				<label for="comment" class="title">메모</label>
+				<textarea cols="40" rows="3" id="comment"></textarea>
+			</li>
+			</ul>
+		</fieldSet>
+		<fieldSet>
+			<legend>주문정보</legend>
+			<!-- 2)-3 폼 요소 추가 -->
+			<li>
+			<label><input type="checkbox">과테말라 안티구아(100g)</label>
+			<label><input type="number" value="0" min="0" max="5">개</label>
+			</li>
+			<li>
+			<label><input type="checkbox">인도네이사 만델링(100g)</label>
+			<label><input type="number" value="0" min="0" max="5">개</label>
+			</li>
+			<li>
+			<label><input type="checkbox">탐나는도다 블렌딩(100g)</label>
+			<label><input type="number" value="0" min="0" max="5">개</label>
+			</li>
+		</fieldSet>
+		<!-- 2)-4 버튼 추가하기(전송버튼) -->
+		<div class="centered">
+			<input type="submit" value="주문하기">
+			<input type="reset" value="다시 작성">
+		</div>
+		</form>
+	</div>
+	
+
+</body>
+</html>

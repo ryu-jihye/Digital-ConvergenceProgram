@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- 텍스트 필드에 입력 커서 표시 -->
+<label class="reg" for="uname">이름</label>
+<input type="text" id="uname" autofocus required>
+
+<!-- 텍스트 필드에 플레이스 홀더 표시 -->
+<label class="reg" for="uid">학번</label>
+<input type="text" id="uid" placeholder="하이픈 없이 입력">
+
+<!-- 읽기 전용 필드 만들기(입력 불가) -->
+<label class="reg" for="subj">영어회화</label>
+<input type="text" id="subj" value="오전 9:00 ~ 11:00" readonly>
+
+<!-- 필수 필드 지정하기(텍스트 이외의 값 입력 시 경고 나옴) -->
+<label class="reg" for="uname">이름</label>
+<input type="text" id="uname" autofocus required>
+
+<!-- 최대, 최솟값, step 지정 -->
+<label class="reg" for="group">단체주문</label>
+<input type="number" id="group" value="10" min="10" max="100" step="10">
+
+<!-- 텍스트 필드의 글자 길이 지정하기 -->
+<label>아이디:<input type="text" id="user-id" size="10" 
+				minlength="4" maxlength="15"></label>
+<small style="color:red;">4~15자리 이내의 영문과 숫자</small>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- 날짜 입력 폼 삽입 -->
+<label><input type="date" id="start"></label>
+<label><input type="date" id="end"></label>
+
+<!-- 시간 입력 폼 -->
+<h3>원하는 대관시간을 선택하세요(오늘)</h3>
+	<label>시작 시간<input type="time" value="09:00" 
+	id="start1"></label>
+	<label>종료 시간<input type="time" value="18:00" 
+	id="end1"></label>
+	
+<h3>대관시간을 선택하세여(다른 날짜)</h3>	
+	<label>시작 시간<input type="datetime-local" value="2016-03-02T09:00" 
+	id="start2"></label>
+	<label>종료 시간<input type="datetime-local" value="2016-03-02T18:00" 
+	id="end2"></label>
+		
+		
+<!-- submit버튼과 reset버튼 삽입 -->
+<form action="register.php" method="post">
+	<label>메일주소<input type="text"></label>
+	<input type="submit" value="제출">
+	<input type="reset" value="다시 입력">
+
+<!-- sumbit버튼에 이미지 사용하기 -->
+<label>아이디<input type="text" size="15"></label>
+<label>비밀번호<input type="password" size="15"></label>
+<input type="image" id=butt" src="images/login.jpg" alt="login">
+
+<!-- 공지사항 팝업 창에 [닫기]버튼을 만들어 팝업 창을 닫으려고 함 -->
+<form>
+	<input type="button" value="닫기" onclick="window.close()">
+</form>
+	
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form>
+
+	<!-- label 사용x : 정확히 버튼을 눌러야 입력 가능 -->
+	<h3>수강 분야(다수 선택 가능)</h3>
+	<ul>
+		<li><input type="checkbox" value="grm">문법</li>
+		<li><input type="checkbox" value="wr">작문</li>
+		<li><input type="checkbox" value="rd">독해</li>
+	</ul>
+	
+	<!-- label 사용o : 텍스트만 클릭해도 라디오 버튼이 클릭 가능 -->
+	<h3>수강과목(1과목만 선택 가능)</h3>
+	<ul>
+		<li>
+		<label><input type="radio" name="subject" 
+		value="eng">영어회화</label>
+		</li>
+		<li>
+		<label><input type="radio" name="subject" 
+		value="ch">중국어회화</label>
+		</li>
+		<li>
+		<label><input type="radio" name="subject" 
+		value="jp">일어회화</label>
+		</li>
+	</ul>
+</form>
+
+</body>
+</html>
