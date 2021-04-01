@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+ <form>
+   <select name="university_major">
+     <option value="humanities">인문학</option>
+     <option value="business">경영학</option>
+     <option value="computer" selected>컴퓨터공학</option>
+   </select><br>
+   전공<input type="text" name="major" size=29><br>
+   학번<input type="text" name="number" size=29><br> 
+   비밀번호<input type="password" name="password">
+   <p>
+   성별 :
+     <input type="radio" name="gender" value="male">남성
+     <input type="radio" name="gender" value="female">여성</p>
+   <hr></hr>
+   전공과목 선택(다중 선택 가능)
+  <input type="checkbox" name="subject" value="first_major" checked>기초분야
+  <input type="checkbox" name="subject" value="second_major" >프로그래밍 분야
+  <input type="checkbox" name="subject" value="thirde_major" >시스템 분야
+  <p>
+  <form name="input" action="book.html" method="get">
+      필요한 책 개수(각 수업당 1권씩 필요)
+    <input type="text" name="quantity"><br/>
+    책 가격(개당 10,000원) 
+    <input type="text" name="price"><br/>
+    <input type="buton" value="계산" onclick="alert('10,000원임')">
+     <fieldset>
+       <legend>인적사항 입력</legend>
+       이름 <input type="text" required><br>
+       생년월일<input type="date" name="date"/><br/>
+       전화번호<input type="tel" name="tel" required
+               pattern="[0-0]{3}-[0-9]{4}-[0-9]{4}">
+               <input type="submit" value="완료"><br>
+       이메일<input type="email" name="email" required>
+             <input type="submit" value="완료">
+       주소 <input type="text"><br/>
+       기타 제출 서류<input type="file" accpet="image/png, image/gif">
+    </fieldset>
+    
+  </form> </p>
+ 
+  <hr></hr>
+  <form name="input" action ="getfeedback.html" method="get">
+   학생의 의견<br/>
+    <textarea name="feeback" rows="7" cols="55"></textarea>
+    
+     
+  <h4>서명하기</h4>
+    <form name="input" action="log.html" method="get">
+        <input type="text" name="user">학번을 입력하시오<br/>
+        <input type="submit" value="제출">
+        <input type="reset" value= "초기화">
+  
+  </form>
+  
+</body>
+</html>
