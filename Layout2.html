@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+	td, th{
+		border: 1px solid red;
+	}
+	#td1 {
+		border: 2px solid green;
+		border-spacing: 10px; /*상하좌우*/
+	}
+	#td2 {
+		border: 3px solid maroon;
+		background-color: aqua;
+		border-spacing: 20px 40px
+	}
+	#td3 {
+		border-collapse:separate;
+		empty-cells:hide;
+	}
+	#tb4 {
+		border-collaspe:separate;
+		empty-cells:show;
+	}
+	#c1 {
+		border:3px solid blue;
+		caption-side: top;
+		border-collaspe: collaspe;
+	}
+	#c2 {
+		border:3px solid red;
+		caption-side: bottom;
+		border-collaspe: collaspe;
+	}
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+	<table style id="tb1" width="350px">
+		<tr>
+			<th>table border-spacing</th>
+			<td>10px</td>
+		</tr>
+	</table>
+	<p></p>
+	<table style="td2" width="350px">
+		<tr>
+			<th>table border-spacing</th>
+			<td>20px 40px</td>
+	</table>
+	<p></p>
+	<table id="td3" border="1" width="300px">
+		<tr>
+			<td>국어</td>
+			<td>영어</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>수학</td>
+			<td></td>
+		</tr>
+	</table>
+	<p></p>
+	<table id="td4" border="1" width="300px">
+		<tr>
+			<td>국어</td>
+			<td>영어</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>수학</td>
+			<td></td>
+		</tr>
+	</table>
+	<p></p>
+	<table id="c1" border="1" width="300px">
+		<caption>[table 1-1]어린이 탑정단</caption>	
+		<tr>
+			<th>소속</th>
+			<th>담당자</th>
+			<th>업무</th>
+		</tr>
+		<tr>
+			<th>청솔초등학교</th>
+			<th>코난</th>
+			<th>살인사건 만들기</th>
+		</tr>
+	</table>
+	<p></p>
+	<table id="c2" border="1" width="300px">
+		<caption>[table 1-2]경찰 조직</caption>	
+		<tr>
+			<th>소속</th>
+			<th>담당자</th>
+			<th>업무</th>
+		</tr>
+		<tr>
+			<th>??</th>
+			<th>신형사</th>
+			<th>사건 파악</th>
+		</tr>
+	</table>
+	
+</body>
+</html>

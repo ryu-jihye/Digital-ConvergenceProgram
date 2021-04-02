@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+	div {
+		border: 3px solid #73AD21;
+	}
+	.img1 {
+		float: right;
+	}
+	.fix {
+		overflow: auto;
+	}
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+	<p>이미지가 박스 영역을 벗어남</p>
+	<div><img class="img1" src="images/latte.jpg" alt="image" width="140" height="140">
+	이미지가 오른쪼긍로 정렬되어 있는데, 박스 영역을 벗어났습니다.
+	</div>
+	<p style="clear:right">overflow: auto; 속성을 사용하여 해결</p>
+	<div class="fix"><img class="img2" src="images/latte.jpg" alt="img" width="140" height="140">
+	이미지가 박스 영역을 벗어날 경우에는 overflow 속성을 auto로 설정해서 해결합니다.
+	</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+	td, th {
+		border: 2px solid black;
+	}
+	#tb1 {
+		border: 2px solid red;
+		table-layout : auto;	
+	}
+	#tb2 {
+		border: 3px dotted teal;
+		background-color:yellow;
+		table-layout: fixed;
+	}
+	#tb3 {
+		border: 3px solid red;
+		background-color:yellow;
+		border-collapse : separate;
+		table-layout : auto;
+	}
+	#tb4 {
+		border:3px solid red;
+		background-color: yellow;
+		border-collapse: collapse;
+		table-layout: auto;	
+	}
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>table layout auto 예제</h2>
+	<table id="tb1">
+		<tr>
+			<th>table layout auto</th>
+			<td>내용 분량에 따라서 자동으로 조절</td>
+		</tr>	
+	</table>
+	<h2>table layout fixed 예제</h2>
+	<table id="tb2" width="250px">
+		<tr>
+		<th>table layout fixed</th>
+		<td>내용 분량과 상관 없이 고정</td>
+		</tr>
+	</table>
+	
+	<table sytle id="tb3" width="350px">
+		<tr>
+			<th>table border-collapse</th>
+			<td>separate 적용</td>
+		</tr>
+	</table>
+	<p></p>
+	<table style id="tb4" width="350px">
+		<tr>
+			<td>table border-collapse</td>
+			<td>collaspe 적용</td>
+		</tr>
+	</table>
+</body>
+</html>
