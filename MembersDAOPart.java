@@ -1,152 +1,59 @@
-package May_Fifth01;
-
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Scanner;
-
-import com.sun.jdi.connect.spi.Connection;
-
-class MembersDAO {//¿¬½À¹®Á¦
-	
-	int userID;
-	String userName, email, phoneNo;
-	String userPwd, regDate;
-
-	public MembersDAO(int userID, 
-					String userName, 
-					String email, 
-					String phoneNo, 
-					String userPwd, 
-					String regDate) {
-		this.userID = userID; this.userName = userName;
-		this.email = email; this.phoneNo = phoneNo;
-		this.userPwd = userPwd; this.regDate = regDate;
-		}
-	
-	public int getUserID() {
-		return userID;
-	}
-
-	public void setUserID(int userID) {
-		this.userID = userID;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPhoneNo() {
-		return phoneNo;
-	}
-
-	public void setPhoneNo(String phoneNo) {
-		this.phoneNo = phoneNo;
-	}
-
-	public String getUserPwd() {
-		return userPwd;
-	}
-
-	public void setUserPwd(String userPwd) {
-		this.userPwd = userPwd;
-	}
-
-	public String getRegDate() {
-		return regDate;
-	}
-
-	public void setRegDate(String regDate) {
-		this.regDate = regDate;
-	}
-	@Override
-	public String toString() {
-		return "Members [userName=" + userName + ", email=" + email + ", phoneNo=" + phoneNo
-				+ ", userPwd=" + userPwd + "]";
-	}
-}
-
-
-
-public class MembersDAOPart{
-
-	public static void main(String[] args) {
-		
+public static void main(String[] args) {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe"; 
-		String dbUserId = "scott"; 	
-		String dbPwd = "tiger";
+		String dbUserId = "scott"; 	String dbPwd = "tiger";
 		Scanner scan = new Scanner(System.in);
-		int menu=0;  //¼±ÅÃµÈ ¸Ş´º ÀúÀå¿ë º¯¼ö
-		
-		//DB ¿¬µ¿¿¡ ÇÊ¿äÇÑ °´Ã¼µé ÂüÁ¶º¯¼ö ÃÊ±âÈ­ 
+		int menu=0;  //ì„ íƒëœ ë©”ë‰´ ì €ì¥ìš© ë³€ìˆ˜
+		//DB ì—°ë™ì— í•„ìš”í•œ ê°ì²´ë“¤ ì°¸ì¡°ë³€ìˆ˜ ì´ˆê¸°í™” 
 		Connection conn = null; 
 		PreparedStatement pstmt=null; 
 		ResultSet rs = null; 
-		
-		//DML ÀÛ¾÷¿¡ ÇÊ¿äÇÑ º¯¼öµé ÃÊ±âÈ­
+		//DML ì‘ì—…ì— í•„ìš”í•œ ë³€ìˆ˜ë“¤ ì´ˆê¸°í™”
 		int userId = 0;
 		String userPwd = null;
 		Members mem = null; 
 		List<Members> al = null;
-		
-		
-		
-		//DB ¿¬°á
-		conn = getConnectivity1(url, dbUserId, dbPwd);
+		//DB ì—°ê²°
+		conn = getConnectivity(url, dbUserId, dbPwd);
 		BREAK:
 			while(true) {
 				System.out.println("================================================");
-				System.out.println("1.Ãß°¡\t2.Á¶È¸\t3.¼öÁ¤\t4.»èÁ¦\t5.¸ğµÎ º¸±â\t6.Á¾·á");
+				System.out.println("1.ì¶”ê°€\t2.ì¡°íšŒ\t3.ìˆ˜ì •\t4.ì‚­ì œ\t5.ëª¨ë‘ ë³´ê¸°\t6.ì¢…ë£Œ");
 				System.out.println("================================================");
-				System.out.println("¸Ş´º¸¦ ¼±ÅÃÇÏ½Ã¿À >>");
+				System.out.println("ë©”ë‰´ë¥¼ ì„ íƒí•˜ì‹œì˜¤ >>");
 				menu = scan.nextInt();
 				switch(menu) {
-				case 1: //Ãß°¡ 
-					System.out.println("ºñ¹Ğ¹øÈ£, ÀÌ¸§, ÀÌ¸ŞÀÏ, ÀüÈ­¹øÈ£ ¼øÀ¸·Î ÀÔ·ÂÇÏ½Ã¿À>> ");
+				case 1: //ì¶”ê°€ 
+					System.out.println("ë¹„ë°€ë²ˆí˜¸, ì´ë¦„, ì´ë©”ì¼, ì „í™”ë²ˆí˜¸ ìˆœìœ¼ë¡œ ì…ë ¥í•˜ì‹œì˜¤>> ");
 					mem = new Members(scan.next(), scan.next(), scan.next(), scan.next() );
-					insertMember1(conn, pstmt, mem); 
+					insertMember(conn, pstmt, mem); 
 					break;
-				case 2: //Á¶È¸ 
-					System.out.println("°Ë»öÇÒ È¸¿øÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ½Ã¿À>> ");
+				case 2: //ì¡°íšŒ 
+					System.out.println("ê²€ìƒ‰í•  íšŒì›ì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì‹œì˜¤>> ");
 					al = getMembers(conn, pstmt, rs, scan.next()); 
 					showAll(al); 
 					break;
-				case 3: //¼öÁ¤
-					System.out.println("¼öÁ¤ÇÒ È¸¿øÀÇ ¾ÆÀÌµğ¿Í ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ½Ã¿À>> ");
-//					userId = scan.nextInt(); userPwd=scan.next();
-					if(isMember(conn, pstmt, rs, userId1, userPwd)) {
-						System.out.println("ºñ¹Ğ¹øÈ£, ÀÌ¸§, ÀÌ¸ŞÀÏ, ÀüÈ­¹øÈ£ ¼øÀ¸·Î ÀÔ·ÂÇÏ½Ã¿À>> ");
-						mem = new Members(userId1, scan.next(), scan.next(), scan.next(), scan.next() );
+				case 3: //ìˆ˜ì •
+					System.out.println("ìˆ˜ì •í•  íšŒì›ì˜ ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì‹œì˜¤>> ");
+					userId = scan.nextInt(); userPwd=scan.next();
+					if(isMember(conn, pstmt, rs, userId, userPwd)) {
+						System.out.println("ë¹„ë°€ë²ˆí˜¸, ì´ë¦„, ì´ë©”ì¼, ì „í™”ë²ˆí˜¸ ìˆœìœ¼ë¡œ ì…ë ¥í•˜ì‹œì˜¤>> ");
+						mem = new Members(userId, scan.next(), scan.next(), scan.next(), scan.next() );
 						updateMembers(conn, pstmt, mem);
 					}
-					else {System.out.println("Á¸ÀçÇÏÁö ¾Ê´Â È¸¿øÀÔ´Ï´Ù."); 
+					else {System.out.println("ì¡´ì¬í•˜ì§€ ì•ŠëŠ” íšŒì›ì…ë‹ˆë‹¤."); 
 					}
 					break;
-				case 4: //»èÁ¦
-					System.out.println("»èÁ¦ÇÒ È¸¿øÀÇ ÀÌ¸§°ú ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ½Ã¿À>> ");
-//					userId = scan.nextInt(); userPwd=scan.next();
-					if(isMember(conn, pstmt, rs, userId1, userPwd)) {
-						System.out.println("ºñ¹Ğ¹øÈ£, ÀÌ¸§, ÀÌ¸ŞÀÏ, ÀüÈ­¹øÈ£ ¼øÀ¸·Î ÀÔ·ÂÇÏ½Ã¿À>> ");
-						mem = new Members(userId1, scan.next(), scan.next(), scan.next(), scan.next() );
-						deleteMembers(conn, pstmt, userId1);
+				case 4: //ì‚­ì œ
+					System.out.println("ì‚­ì œí•  íšŒì›ì˜ ì´ë¦„ê³¼ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì‹œì˜¤>> ");
+					userId = scan.nextInt(); userPwd=scan.next();
+					if(isMember(conn, pstmt, rs, userId, userPwd)) {
+						System.out.println("ë¹„ë°€ë²ˆí˜¸, ì´ë¦„, ì´ë©”ì¼, ì „í™”ë²ˆí˜¸ ìˆœìœ¼ë¡œ ì…ë ¥í•˜ì‹œì˜¤>> ");
+						mem = new Members(userId, scan.next(), scan.next(), scan.next(), scan.next() );
+						deleteMembers(conn, pstmt, userId);
 						}
-					else {System.out.println("Á¸ÀçÇÏÁö ¾Ê´Â È¸¿øÀÔ´Ï´Ù."); 
+					else {System.out.println("ì¡´ì¬í•˜ì§€ ì•ŠëŠ” íšŒì›ì…ë‹ˆë‹¤."); 
 					} break;
-				case 5: //¸ğµÎº¸±â 
+				case 5: //ëª¨ë‘ë³´ê¸° 
 					al = getMemberListAll(conn, pstmt, rs); 
 					showAll(al); 
 					break;
@@ -154,48 +61,3 @@ public class MembersDAOPart{
 					break BREAK;
 				}
 			}
-		
-		public static Connection getConnectivity1(String url, String dbUserId, String dbPwd) {
-			//DB¿Í ¿¬°áµÇ´Â Connection °´Ã¼ ¹İÈ¯
-			Connection conn1 = null;
-			try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn1 = (Connection) DriverManager.getConnection(url, dbUserId, dbPwd);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.getStackTrace();}
-		return conn1;
-		}
-		
-		public static int insertMember1(Connection conn, 
-				PreparedStatement pstmt, 
-				Members mem) {
-			int result = 0;
-			
-			String sql = "insert into members "
-					+ "values(seq_members.nextval, ?, ?, ?, ?, sysdate)";
-			try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,  mem.getUserPwd());
-			pstmt.setString(1,  mem.getUserName());
-			pstmt.setString(1,  mem.getEmail());
-			pstmt.setString(1,  mem.getPhoneNo());
-			pstmt.executeUpdate();
-			
-			result = pstmt.executeUpdate(); 
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
-				e.getStackTrace();}
-			return conn;
-			}
-			
-//		}		
-}
-
-	private static Connection getConnectivity1(String url, String dbUserId, String dbPwd) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-}

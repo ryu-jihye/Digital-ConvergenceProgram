@@ -1,0 +1,247 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class MembersEx2 {
+	public static void main(String[] args) {
+		String url = "jdbc:oracle:thin:@localhost:1521:xe"; 
+		String dbUserId = "scott"; 	String dbPwd = "tiger";
+		Scanner scan = new Scanner(System.in);
+		int menu=0;  //선택된 메뉴 저장용 변수
+		//DB 연동에 필요한 객체들 참조변수 초기화 
+		Connection conn = null; 
+		PreparedStatement pstmt=null; 
+		ResultSet rs = null; 
+		//DML 작업에 필요한 변수들 초기화
+		int userId = 0;
+		String userPwd = null;
+		Members mem = null; 
+		List<Members> al = null; //회원들을 저장할 수 있는 리스트(ArrayList,LinkedList<>)를 참조하는 변수
+		//DB 연결
+		conn = getConnectivity(url, dbUserId, dbPwd);
+		BREAK:
+			while(true) {
+				System.out.println("================================================");
+				System.out.println("1.추가\t2.조회\t3.수정\t4.삭제\t5.모두 보기\t6.종료");
+				System.out.println("================================================");
+				System.out.println("메뉴를 선택하시오 >>");
+				menu = scan.nextInt();
+				switch(menu) {
+				case 1: //추가 
+					System.out.println("비밀번호, 이름, 이메일, 전화번호를 입력하세요 ");
+					mem = new Members(scan.next(), scan.next(), scan.next(), scan.next() ); //인자 4개 필요
+					insertMember(conn, pstmt, mem); 
+					break;
+
+				case 2: //조회 
+					System.out.println("검색할 회원의 이름을 입력하시오>> ");
+					al = getMembers(conn, pstmt, rs, scan.next()); 
+					showAll(al); 
+					//list 객체를 가져와서 showall로 저장된 값 가져오기
+					break;
+
+				case 3: //수정
+					System.out.println("수정할 회원의 아이디와 비밀번호를 입력하시오>> ");
+					userId = scan.nextInt(); userPwd=scan.next();
+					if(isMember(conn, pstmt, rs, userId, userPwd)) {
+						System.out.println("비밀번호, 이름, 이메일, 전화번호를 입력하세요");
+						mem = new Members(userId, scan.next(), scan.next(), scan.next(), scan.next() );
+						updateMembers(conn, pstmt, mem);
+					}
+					else {System.out.println("존재하지 않는 회원입니다."); 
+					}
+					break;
+
+				case 4: //삭제
+					System.out.println("삭제할 회원의 이름과 비밀번호를 입력하시오>> ");
+					userId = scan.nextInt(); userPwd=scan.next();
+					deleteMembers(conn, pstmt, userId);
+					break;
+
+				case 5: //모두보기 
+					al = getMemberListAll(conn, pstmt, rs); //al을 위에 초기화시켜줬기 떄문에 쓸 수 있게 됨
+					showAll(al); 
+					break;
+				case 6:
+
+					break BREAK;
+				}
+			}
+	}
+
+	//반환 타입은 항상 먼저 초기화부터 하고 메소드 코드 적기
+	//////////////////////////////////////connection///////////////////////////////
+	public static Connection getConnectivity(String url, String dbuserld, String dbuserPwd) {
+		//db와 연결되는 connection 객체 반환
+		Connection conn = null; 
+		//null안 주면 nullpointexception이 뜸
+		//Connection conn만 있으면 return 에서 초기하라고 뜸
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver"); //db연결
+			conn = DriverManager.getConnection(url, dbuserld, dbuserPwd); //위에 3개랑 연결
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return conn;
+
+	}
+	
+	
+	
+	/////////////////////////////////case1////////////////////////////////
+	public static int insertMember(Connection conn, PreparedStatement pstmt, Members mem) {
+		//conn을 받았기 때문에 메소드 내에서 db랑 연결을 해서 쓸 수 있음
+		int result = 0;
+		String sql = "insert into memberss values(mem_s.NEXTVAL,?,?,?,?,sysdate)";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mem.getUserPwd());
+			pstmt.setString(2, mem.getUserName()); //mem이 Members니까 getter 이용
+			pstmt.setString(3, mem.getEmail());
+			pstmt.setString(4, mem.getPhoneNo());
+			result = pstmt.executeUpdate(); //executeUpdate가 int형으로 받아줌
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	
+	/////////////////////////case 2 //////////////////조회
+	public static List<Members> getMembers(Connection conn, PreparedStatement pstmt, ResultSet rs, String userName){
+		//List<Members> members = al; 처럼 초기화를 시켜주면
+		List<Members> members = new ArrayList<Members>();
+
+		String sql = "select * from memberss where username like '%'||?||'%'";
+		try {
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userName); ////username은 이미 스캔을 받은 거니까 여기서 스캔 안 해도 됨
+			rs = pstmt.executeQuery();
+
+			while(rs.next()) { //출력
+				members.add(new Members(rs.getInt("userid"),rs.getString("userpwd"),
+						rs.getString("username"), rs.getString("email"),
+						rs.getString("phoneno"),rs.getString("regdate")));
+			}
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return members;
+	}
+	
+	public static void showAll(List<Members> al) { //Members:타입 al : 이름
+		//Members 객체에 리스트의 정보들을 모두 출력
+		List<Members> members = al; //초기화
+
+		for(Members m : members) { //list에 있는 값을 m으로 뽑아옴
+			System.out.println(m.toString());
+		}
+		//void는 반환값이 없음
+	}
+	
+	////////////////////////////////case3////////////////////////////////////////
+	public static boolean isMember(Connection conn, PreparedStatement pstmt, ResultSet rs, int userId, String userPwd) {
+		//db랑 연결해서 입력된 정보를 가진 회원이 존재 여부를 확인하여 회원이면 true, 아니면 false
+		//위에서 정의한 connection을 conn으로 가져옴
+		//userid랑 userpwd를 sql을 통해서 가져와야함
+
+		String sql = "select * from memberss where userid = ? and userpwd = ?"; 
+		//userid랑 userpwd 같은 정보를 가져옴
+		boolean result = false; //위 sql을 통해 회원이면 true, 아니면 false 반환
+		try {
+
+			pstmt = conn.prepareStatement(sql); //연결할 땐 conn을 통해 연결함
+			pstmt.setInt(1, userId); //userid가 int
+			pstmt.setString(2, userPwd); //앞에서 던져주는 값이 있기 때문에 얘로 전달하면 알아서 값이 나옴
+			rs = pstmt.executeQuery(); //실행
+			result = rs.next(); //<=rs.next()는 boolean 타입, 
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return result; // 값이 있으면 true(try,catch문 실행) 없으면 false 반환 
+	}
+	public static int updateMembers (Connection conn, PreparedStatement pstmt, Members mem) {
+		//몇 개의 행이 반환되는지 알려주는 메소드
+		String sql = "update memberss set userpwd=?,username=?,email=?,phoneno=? where userid=?";
+		int result = 0; //초기화
+		try {
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mem.getUserPwd()); //mem이 Members니까 getter 이용
+			pstmt.setString(2, mem.getUserName()); 
+			pstmt.setString(3, mem.getEmail());
+			pstmt.setString(4, mem.getPhoneNo());
+			pstmt.setInt(5, mem.getUserID()); 
+			//where절이 필요없음 ismember에서 값이 나온 게 여기로 들어가니까
+			result = pstmt.executeUpdate(); 
+			//바뀐 행의 개수를 리턴하고 result에 저장(반환 값이 int형이니까 executeUpdate 사용)
+
+		}catch (Exception e) {
+			e.printStackTrace();
+		}return result;
+		
+		
+	}
+	
+
+
+	/////////////////////////////////case 4///////////////////////////////////
+
+	public static int deleteMembers(Connection conn, PreparedStatement pstmt, int userId) {
+		//userid를 사용해서 삭제하는 메소드
+		String sql = "delete from memberss where userid=?";
+		int result = 0;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, userId); //밖에서 userid를 입력받기 때문에 따로 여기서 쓸 필요X
+
+			result = pstmt.executeUpdate();//반환 값이 int형이니까 executeUpdate사용
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}return result;
+	}
+	////////////////////////////////////////case 5//////////////////////////////////////
+	public static List<Members> getMemberListAll(Connection conn, PreparedStatement pstmt, ResultSet rs){
+		//모든 멤버들을 리스트에 담아서 반환, 
+		//db에 있는 애들 다 출력
+		List<Members> members = new ArrayList<Members>(); //members를 담을 수 있는 list놓고 나열할 수있는 arrylist 사용?
+		String sql = "select * from memberss";
+
+		try {
+
+			pstmt = conn.prepareStatement(sql);
+			//? 없으니까 set할 필요가 없음
+			rs = pstmt.executeQuery(); //resultSet으로 데려오려면 query를 써야함
+
+			while(rs.next()) {//출력
+				members.add(new Members(rs.getInt("userid"),
+						rs.getString("userpwd"),
+						rs.getString("username"), rs.getString("email"),
+						rs.getString("phoneno"),rs.getString("regdate")));
+			}
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return members;
+	}
+	//case 2에 있는 showall도 있음
+
+}
