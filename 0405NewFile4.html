@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div {
+	width: 100px;
+	height: 50px;
+	background: crimson;
+	color: yellow;
+    border: 1px solid black;
+	transition: width 3s;
+}
+
+#div1 { transition-timing-function: linear; }
+#div2 { transition-timing-function: ease; }
+#div3 { transition-timing-function: ease-in; }
+#div4 { transition-timing-function: ease-out; }
+#div5 { transition-timing-function: ease-in-out; }
+#div6 { transition-timing-function: 
+				cubic-bezier(0.1, 0.0,0.1, 1.0); }
+
+div:hover {
+	width: 400px;
+}
+</style>
+</head>
+<body>
+
+<h1>The transition-timing-function Property</h1>
+
+<div id="div1" style="top: 100px">linear</div>
+<div id="div2" style="top: 150px">ease</div>
+<div id="div3" style="top: 200px">ease-in</div>
+<div id="div4" style="top: 250px">ease-out</div>
+<div id="div5" style="top: 300px">ease-in-out</div>
+<div id="div6" style="top: 350px">cubic-bezier</div>
+</body>
+</html>

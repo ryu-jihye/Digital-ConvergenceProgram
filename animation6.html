@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+	div {
+		width: 100px;
+		height: 50px;
+		background: red;
+		position: relative;
+		animation: boxmove 5s alternate;
+	}
+	#box1 {
+		animation-delay: 1s;
+		animation-timing-direction: ease;
+	}
+	#box2 {
+		animation-delay: 2s;
+		animation-timing-direction: linear;
+	}
+	#box3 {
+		animation-delay: 3s;
+		animation-timing-direction: ease-out;
+	}
+	@keyframes boxmove {
+		from {left:0px;}
+		to {left: 300px;}
+	}
+	div:hover {
+		animation-play-state:pause;
+	}
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+<div id="box1">애니메이션 박스1</div>
+<div id="box2">애니메이션 박스2</div>
+<div id="box3">애니메이션 박스3</div>
+<p><strong>참고:</strong>IE9이하 혹은 낮은 버전 지원 안 함</p>
+</body>
+</html>

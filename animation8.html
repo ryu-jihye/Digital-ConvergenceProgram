@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+	div {
+		width: 100px;
+		height: 100px;
+		background: red;
+		postion: relative;
+		animation: colorbox 5s infinite;
+		animation-direction: alternate;
+	}
+	@keyframes colorbox {
+		from {background: red; left:0px; top: 0px;}
+		25%{background: orange; left: 300px; top:0px;}
+		50%{background: yellow; left: 300px; top:300px;}
+		75%{background: green; left: 0px; top:300px;}
+		to {background: red; left:0px; top:0px;}
+	}
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+<div></div>
+</body>
+</html>
