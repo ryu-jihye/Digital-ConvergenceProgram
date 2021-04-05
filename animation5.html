@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>Insert title here</title>
 <style>
 	div {
 		width: 100px;
@@ -12,30 +13,28 @@
 	}
 	#box1 {
 		animation-delay: 1s;
-		animation-iteration-count: 3;
-		animation-timing-direction: ease;
+		animation-timing-function: ease;
 	}
 	#box2 {
 		animation-delay: 2s;
-		animation-iteration-count: 3;
-		animation-timing-direction: linear;
+		animation-timing-function: linear;
 	}
 	#box3 {
 		animation-delay: 3s;
-		animation-iteration-count: 3;
-		animation-timing-direction: ease-out;
+		animation-timing-function: ease-out;
 	}
 	@keyframes boxmove {
-		from {left:0px;}
-		to {left: 300px;}
+		from { left: 0px; }
+		to { left: 300px; }
+	}
+	div:hover {
+		animation-play-state: paused;
 	}
 </style>
-<title>Insert title here</title>
 </head>
 <body>
 <div id="box1">애니메이션 박스1</div>
 <div id="box2">애니메이션 박스2</div>
 <div id="box3">애니메이션 박스3</div>
-<p><strong>참고:</strong>IE9이하 혹은 낮은 버전 지원 안 함</p>
 </body>
 </html>

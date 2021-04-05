@@ -2,40 +2,42 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>Insert title here</title>
 <style>
 	div {
 		width: 100px;
-		height: 50px;
-		background: red;
-		position: relative;
-		animation: boxmove 5s alternate;
-	}
-	#box1 {
-		animation-delay: 1s;
-		animation-timing-direction: ease;
-	}
-	#box2 {
+		height: 100px;
+        position: absolute;
+		animation-duration: 5s;
+		animation-timing-function: linear;
 		animation-delay: 2s;
-		animation-timing-direction: linear;
+		animation-iteration-count: infinite;
+		animation-play-state: running;
 	}
-	#box3 {
-		animation-delay: 3s;
-		animation-timing-direction: ease-out;
+	#div1 {
+		background-color: blue;
+		animation-direction: normal;
+		animation-name: L-box;
 	}
-	@keyframes boxmove {
-		from {left:0px;}
-		to {left: 300px;}
+	#div2 {
+		background-color: yellow;
+		animation-direction: reverse;
+		animation-name: R-box;
 	}
-	div:hover {
-		animation-play-state:pause;
+	@keyframes L-box {
+		0% {left: 0px;}
+		50% {left: 200px;}
+		100% {left: 0px;}
+	}
+	@keyframes R-box {
+		0% {left: 400px;}
+		50% {left: 200px;}
+		100% {left: 400px;}
 	}
 </style>
-<title>Insert title here</title>
 </head>
 <body>
-<div id="box1">애니메이션 박스1</div>
-<div id="box2">애니메이션 박스2</div>
-<div id="box3">애니메이션 박스3</div>
-<p><strong>참고:</strong>IE9이하 혹은 낮은 버전 지원 안 함</p>
+<div id="div1">왼쪽 박스</div>
+<div id="div2">오른쪽 박스</div>
 </body>
 </html>

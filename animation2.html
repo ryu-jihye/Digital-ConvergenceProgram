@@ -2,30 +2,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>Insert title here</title>
 <style>
 	div {
 		width: 100px;
 		height: 50px;
 		background: red;
 		position: relative;
-		animation: boxmove 5s linear infinite alternate;
+		animation: boxmove 5s linear infinite;
 	}
 	#box1 {
 		animation-delay: 3s;
+		animation-direction: reverse;
 	}
 	#box2 {
 		animation-delay: 5s;
+		animation-direction: alternate-reverse;
 	}
 	@keyframes boxmove {
-		from {left:0px;}
-		to {left: 300px;}
+		from { left: 0px; }
+		to { left: 300px; }
 	}
 </style>
-<title>Insert title here</title>
 </head>
 <body>
-<div id="box1">에니메이션 박스1</div>
-<div id="box2">에니메이션 박스2</div>
-<p><strong>참고:</strong>IE9이하 혹은 낮은 버전 지원 안 함</p>
+<div id="box1">애니메이션 박스1</div>
+<div id="box2">애니메이션 박스2</div>
 </body>
 </html>
