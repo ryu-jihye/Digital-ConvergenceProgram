@@ -1,0 +1,38 @@
+package colllectiveTrainig;
+
+import java.util.*;
+
+
+public class Main {
+
+   public static void main(String[] args) {
+      // TODO Auto-generated method stub
+
+      HashMap<String , Integer> m = new HashMap<String , Integer>();
+
+      Scanner scan = new Scanner(System.in);
+
+      
+      for(int i = 0; i < 5; i++) {
+         System.out.printf("나라와 인구를 순서대로 입력하시오 >> ");
+         String nation = scan.next();
+         int people = scan.nextInt();
+
+         m.put(nation, people);
+      }
+
+      System.out.printf("나라를 입력하시오 >>");
+      String putNation = scan.next();
+
+      Set<String> keys = m.keySet();
+      Iterator<String> it3 = keys.iterator();
+
+      while(it3.hasNext()) { 
+         String key = it3.next(); 
+         if(key.equals(putNation)) { 
+            int m_peple = m.get(key); 
+            System.out.println(key+"의 인구수는 "+ m_peple +"명입니다"); 
+         }
+      }
+   }
+}

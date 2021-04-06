@@ -1,0 +1,24 @@
+package colllectiveTrainig;
+
+class Mypoint {
+		int x;
+		int y;
+		public Mypoint(int x, int y) {
+			this.x = x;
+			this. y = y;
+		}
+		public String toString() {
+			return String.format("MyPoint(%d,%d)", 
+									x,y);
+		}
+}
+
+public class new5 {
+
+	public static void main(String[] args) {
+		Mypoint a = new Mypoint(3,20);
+		System.out.println(a);
+
+	}
+
+}
