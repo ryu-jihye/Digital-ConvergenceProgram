@@ -8,14 +8,15 @@
 </head>
 <body>
 <%
+request.setCharacterEncoding("utf-8");
 String userId = request.getParameter("userId");
 String userPwd = request.getParameter("userPwd");
-if(userId.isEmpty() || userPwd.isEmpty()) {
-	RequestDispatcher rd = request.getRequestDispatcher("loginFrm.jsp");
-	rd.forward(request, response);
-	return;
+
+if(userId.equals("admin") && userPwd.equals("admin")) {
+	response.sendRedirect("2_loginSuccess.jsp");
+} else {
+	response.sendRedirect("2_loginFail.jsp");
 }
 %>
-아이디 : <%= userId %> / 비밀번호 : <%= userPwd %>
 </body>
 </html>

@@ -7,10 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="./loginProc.jsp" method="post">
-	ID: <input type="text" name="userId"><br>
-	PW: <input type="password" name="userPwd"><br>
-	<input type="submit" value="로그인">
-</form>
+<p>로그인 실패</p>
+<p><a href="2_loginFrm.jsp">로그인 하러 가기</a>
 </body>
 </html>
