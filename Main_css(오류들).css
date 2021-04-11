@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/*초기화*/
+*{
+	margin:0; padding:0;
+	font: normal 12px 'Jua'
+}
+a{
+	text-decoration: none;
+}
+img {
+	border: 0;
+}
+ul {
+	list-style: none;
+}
+body {
+	width: 980px;
+	margin: 0 auto;
+}
+
+/*헤더*/
+#main_header {
+	position: fixed;
+	height: 120px;
+}
+#main_header>h1.logo {
+	position:relative;
+	left: 380px; top: 150px; /*left가 커질수록 오른쪽으로 이동, top이 커질수록 아래로 이동*/
+}
+#main_header>div.login_menu {
+	position: fixed;
+	top: 100px; right: 200px; /*right가 커질수록 왼쪽으로 이동, top이 커질수록 아래로 이동*/
+}
+
+/*사이드*/
+/*네비게이션 위*/
+/*네비게이션 아래*/
+/*목록*/
+
+/*본문*/
+div.container {
+	overflow: hidden;
+}
+div.item {
+	float:left;
+	margin: 0 3px;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+/*푸터*/
+#main_footer {
+	position: fixed;
+	height: 5px;
+	padding: 5px;
+	margin-bottom: 10px;
+	background: #A9A27D;
+	border-radius: 10px;
+	taxt-align:center;
+}
+#main_footer>h1 {
+	font-size : 1.5em;
+	font-weight: bold;
+}
