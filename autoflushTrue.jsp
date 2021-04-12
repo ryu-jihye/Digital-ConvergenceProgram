@@ -1,18 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%!
-	public int multiply(int a, int b) {
-	int c = a * b;
-	return c;
-}
-%>
+<%@ page buffer="1kb" autoFlush="true" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>선언부를 사용할 두 정수값의 곱</title>
+<title>autoFlush 속성값 false 예제</title>
 </head>
 <body>
-10 * 25 = <%= multiply(10, 25) %>
+
+<% for (int i=0; i<1000; i++) { %>
+1234
+<% } %>
 </body>
 </html>
