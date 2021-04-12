@@ -7,11 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action='loginProc2.jsp' method='post'>
-	관리자 로그인<br>
-	아이디: <input type='text' name='userid'><br>
-	비밀번호 : <input type='password' name='userpwd'>
-	<input type='submit' value='전송'>
+<form action="ex15.jsp" method="post">
+	이름 : <input type="text" name="name"/><br/>
+	번호 : <input type="text" name="number"/><br/>
+	<input type="submit" value="제출하기"/>
 </form>
 </body>
 </html>
