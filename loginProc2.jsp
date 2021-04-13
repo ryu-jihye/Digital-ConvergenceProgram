@@ -1,29 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>오류발생함(26행부터~)</title>
 </head>
 <body>
-	<%
-		if (request.getMethod().equals("POST")) {
-		String id = request.getParameter("userid");
-		String pwd = request.getParameter("userpwd");
-		session.setAttribute("userid", id);
-		session.setAttribute("userpwd", pwd);
+<%
+	String adminId = application.getInitParameter("adminId"); //초기 패러미터 읽어오기
+	String adminPwd = application.getInitParameter("adminPwd");
+	String userId = request.getParameter("userId");
+	String userPwd = request.getParameter("userPwd");
+	
+	if(userId.equals(adminId) && userPwd.equals(adminPwd)) {
+		session.setAttribute("userId", userId);
+		out.println("로그인에 성공했음 <a href='loginFrm2.jsp'>로그인 폼으로</a>");
+		String idSave = request.getParameter("idSave");
+		Cookie cook = new Cookie("savedId", userId);
+		if(idSave != null) { //저장을 원하는 경우
+			response.addCookie(cook);
+		} else { //저장을 원하지 않는 경우, 쿠키를 삭제하고 응답에 추가하여 전송
+			cook.setMaxAge(0);
+			response.addCookie(cook);
+		}
+	} else if(userId.equals(adminId)) {
+		out.println("<script>alert('비밀번호 불일치'); history.back();</script>");
+	} else {
+		out.println("<script>alert('아이디 불일치'); history.back();</script>");
+	}
+%>
 
-		if (!id.equals((String) application.getInitParameter("adminId"))
-		|| !pwd.equals((String) application.getInitParameter("adminPwd"))) {
-			RequestDispatcher rd = request.getRequestDispatcher("loginFrm2.jsp");
-			rd.forward(request, response);
+<%
+ 	String savedId = "";
+	Cookie cookies[] = request.getCookies();
+	if (cookies != null) {
+		for(int i=0; i<cookies.length; i++) {
+			if(cookies[i].getName().equals("savedId")) {
+				savedId = cookies[i].getValue();
+			}
 		}
-	%>
-	로그인에 성공했음<br>
-	<a href='loginChk.jsp'>로그인 정보 확인</a>
-	<%
-		}
-	%>
+	}
+%>
 </body>
 </html>

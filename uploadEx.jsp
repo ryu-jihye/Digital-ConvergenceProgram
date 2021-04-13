@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	int time = session.getMaxInactiveInterval()/60;
-	out.println("세션 유효 시간 : " + time + "분<br>");
-%>
+<form action="uploadProc.jsp" method="post" enctype=multipart/form-data">
+	<input type="file" name="file"><p>	
+	<input type="submit" value="파일 업로드">
+</form>
 </body>
 </html>

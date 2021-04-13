@@ -9,6 +9,6 @@
 <body>
 <% session.invalidate(); %>
 로그아웃 완료.<br>
-<a href='loginFrm2.jsp'>로그인 화면으로</a>
+<a href='loginFrm.jsp'>로그인 화면으로</a>
 </body>
 </html>

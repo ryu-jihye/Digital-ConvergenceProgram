@@ -7,9 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:useBean id="book" 
+class="org.icarus.beans.BookBean"/>
+<jsp:setProperty property="*" name="book"/>
 <%
-	int time = session.getMaxInactiveInterval()/60;
-	out.println("세션 유효 시간 : " + time + "분<br>");
+	request.setAttribute("book", book);
 %>
+<jsp:forward page="bookOutput.jsp"/>
 </body>
 </html>

@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	int time = session.getMaxInactiveInterval()/60;
-	out.println("세션 유효 시간 : " + time + "분<br>");
-%>
+없는 페이지임
 </body>
 </html>

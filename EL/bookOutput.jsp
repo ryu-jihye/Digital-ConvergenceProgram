@@ -7,9 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	int time = session.getMaxInactiveInterval()/60;
-	out.println("세션 유효 시간 : " + time + "분<br>");
-%>
+책 제목 : ${book.title}<br>
+책 저자 : ${book.author}<br>
+출판사 : ${book.publisher}
 </body>
 </html>

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-아이디 <%=session.getAttribute("userid") %>로 로그인 한 상태<br>
+아이디 <%=session.getAttribute("id") %>로 로그인 한 상태<br>
 <a href='logout.jsp'>로그아웃</a>
 </body>
 </html>

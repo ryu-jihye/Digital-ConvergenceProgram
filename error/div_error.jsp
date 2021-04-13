@@ -7,9 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	int time = session.getMaxInactiveInterval()/60;
-	out.println("세션 유효 시간 : " + time + "분<br>");
-%>
+<%@page isErrorPage="true" %>
+나누기 처리 중 에러가 발생했습니다.
 </body>
 </html>

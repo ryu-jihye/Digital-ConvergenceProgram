@@ -7,9 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h3>JSP</h3>
 <%
-	int time = session.getMaxInactiveInterval()/60;
-	out.println("세션 유효 시간 : " + time + "분<br>");
+Enumeration<String> list = request.getHeaderNames();
+while(list.hasMoreElements()) {
+	String key = list.nextElement();
+	out.print("<br>" +key+ ":"+request.getHeader(key));
+	}
 %>
+<hr/>
+<h3>EL</h3>
+${header}
 </body>
 </html>

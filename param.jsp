@@ -7,9 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h3>EL 표기법</h3>
+${param.id}/${param.pwd} <br>
+${param["id"]/${param["pwd"]}<br>
+<hr/>
+
+<h3>JSP</h3>
 <%
-	int time = session.getMaxInactiveInterval()/60;
-	out.println("세션 유효 시간 : " + time + "분<br>");
-%>
+	String id=request.getParameter("id");
+	String pwd = request.getParameter("pwd"); %>
+<%=id %>/ <%=pwd %>
 </body>
 </html>
