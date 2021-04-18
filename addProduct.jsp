@@ -1,41 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="com.conan.vo.Products"%>
-<%@page import="java.sql.*,javax.sql.*, javax.naming.*"%>
-<%@page import="java.io.*,java.util.*" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<%
-   String id = request.getParameter("proId");
-   String name = request.getParameter("proName");
-   int price = Integer.parseInt(request.getParameter("unitPrice"));
-   String description = request.getParameter("description");
-   String manufacturer = request.getParameter("manufacturer");
-   String category = request.getParameter("category");
-   int stock = Integer.parseInt(request.getParameter("noOfStock"));
 
-   Products product = new Products(id, name, price, description, manufacturer, category, stock);
 
-   //1.JNDI 서버 객체 생성
-   InitialContext ic = new InitialContext();
-   //2.lookup()
-   DataSource ds = (DataSource) ic.lookup("java:comp/env/jdbc/myoracle");
-   //3.getConnection()
-   Connection conn = ds.getConnection();
-   String sql = "insert into products (proid, proname, unitprice, description, manufactuer,category, noofstock) values (?,?,?,?,?,?,?)";
-   PreparedStatement pstmt = conn.prepareStatement(sql);
-   pstmt.setString(1, id);
-   pstmt.setString(2, name);
-   pstmt.setInt(3, price);
-   pstmt.setString(4, description);
-   pstmt.setString(5, manufacturer);
-   pstmt.setString(6, category);
-   pstmt.setInt(7, stock);
-   ResultSet rs = pstmt.executeQuery();
-   rs.next();
-   
-   out.print("등록되었습니다.");
-   %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -84,7 +50,10 @@
          <div class="form-group row">
             <label class="col-sm-2">분류</label>
             <div class="col-sm-3">
-               <input type="text" id="category" name="category" class="form-control">
+        	<b>핸드폰</b><input type="radio" name="category" value="핸드폰" >
+			<b>노트북</b><input type="radio" name="category" value="노트북" >
+			<b>태블릿</b><input type="radio" name="category" value="태블릿" >
+			<b>기타</b><input type="radio" name="category" value="기타" >
             </div>
          </div>
          <div class="form-group row">
