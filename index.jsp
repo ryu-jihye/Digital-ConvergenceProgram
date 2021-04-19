@@ -4,11 +4,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JSP 게시판 웹사이트</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<script>
-		location.heft="login.jsp";
-	</script>
+<%!String greeting = "Welcome to Conan's HOME";
+String tagline = "내이름은 코난 탐정이죠.";%>
+<jsp:include page="menu.jsp"/>
+<div class="jumbotron">
+	<div class="container">
+		<h1 class="display-3"><%=greeting %></h1>
+	</div>
+</div>
+<main role="main">
+	<div class="container">
+		<div class="text">
+			<h3><%=tagline%></h3>
+		</div>
+		<hr>
+	</div>
+</main>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

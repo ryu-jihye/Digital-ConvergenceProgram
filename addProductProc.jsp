@@ -1,19 +1,12 @@
-<%@page import="java.sql.*,javax.sql.*, javax.naming.*"%>
-<%@page import="javax.sql.DataSource"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="javax.naming.InitialContext"%>
 <%@page import="java.util.Enumeration"%>
+<%@page import="javax.sql.DataSource"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<% request.setCharacterEncoding("utf-8"); %>
+	pageEncoding="UTF-8"%>
 	<%
 	MultipartRequest multi = null;
 	String path = application.getRealPath("/upload");
@@ -45,7 +38,7 @@
 		pstmt.setString(6, category);
 		pstmt.setInt(7, noOfStock);
 		pstmt.setString(8, orgFile);
-		pstmt.execute();
+		pstmt.executeQuery();
 		
 		pstmt.close();
 		conn.close();
@@ -73,5 +66,3 @@
 	</div>
 	</div>
 	<jsp:include page="footer.jsp"/>
-</body>
-</html>
