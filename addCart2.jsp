@@ -6,7 +6,9 @@
 <%@page import="java.sql.*"%>
 <%@page import="javax.sql.DataSource"%>
 <%@page import="javax.naming.InitialContext"%>
-<%request.setCharacterEncoding("utf-8"); %>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +16,7 @@
 <title>Insert title here</title>
 </head>
 <%
-   String proId = request.getParameter("proId");
+	String proId = request.getParameter("proId");
    InitialContext ic = new InitialContext();
    DataSource ds = (DataSource) ic.lookup("java:comp/env/jdbc/myoracle");
    Connection conn = ds.getConnection();

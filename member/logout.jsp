@@ -7,11 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% 
-	//설정돤 새션값들을 모두 사라지도록 함
-	session.removeAttribute("cartList");
-	//cart.jsp로 리다이렉트
-	response.sendRedirect("cart.jsp");
-%>
+<% session.invalidate(); %>
+로그아웃 완료.<br>
+<a href='loginFrm.jsp'>로그인 화면으로</a>
 </body>
 </html>

@@ -15,10 +15,12 @@
 	Products selectedItem = new Products();
 	for(int i = 0; i<cartList.size(); i++) {
 		selectedItem = cartList.get(i);
-		if (selectedItem.getProId().equals(proId)) { cartList.remove(selectedItem); }
+		if (selectedItem.getProId().equals(proId)) { 
+			cartList.remove(selectedItem); }
 	}
+//cart.jsp로 리다이렉트
+response.sendRedirect("cart.jsp");
 %>
-<!-- cart.jsp로 리다이렉트 -->
-<jsp:forward page="cart.jsp">
+
 </body>
 </html>

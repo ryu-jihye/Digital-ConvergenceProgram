@@ -1,4 +1,4 @@
-<%@page import="java.util.ArrayList, org.beans.Products"%>
+<%@page import="java.util.ArrayList,org.beans.Products"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
@@ -17,21 +17,22 @@
 	<jsp:useBean id="product" class="org.beans.Products" scope="request" />
 	<%
 		InitialContext ic = new InitialContext();
-	DataSource ds = (DataSource) ic.lookup("java:comp/env/jdbc/myoracle");
-	Connection conn = ds.getConnection();
+			DataSource ds = (DataSource) ic.lookup("java:comp/env/jdbc/myoracle");
+			Connection conn = ds.getConnection();
 
-	PreparedStatement pstmt = conn.prepareStatement("select * from products");
-	ResultSet rs = pstmt.executeQuery();
-	ArrayList<Products> pList = new ArrayList<Products>();
-	while (rs.next()) {
+			PreparedStatement pstmt = conn.prepareStatement("select * from products");
+			ResultSet rs = pstmt.executeQuery();
+			
+			ArrayList<Products> pList = new ArrayList<Products>();
+			while (rs.next()) {
 		pList.add(new Products(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5),
 		rs.getString(6), rs.getInt(7), rs.getString(8)));
-	}
-	rs.close();
-	pstmt.close();
-	conn.close();
-	
-	String imageUrl = request.getContextPath()+"/upload";
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+			
+			String imageUrl = request.getContextPath()+"/upload";
 	%>
 	<jsp:include page="menu.jsp"/>
 	<div class="jumbotron">
@@ -44,7 +45,8 @@
 			<c:set var="pList" value="<%=pList%>" />
 			<c:forEach var="pList" items="${pList}">
 			<div class="col-md-4">
-			<img alt="image" src="<%=imageUrl%>/${pList.pImage}" width="300px" height="300px">
+			<!-- Products.java에 pImage추가 -->
+			<img alt="ddd" src="<%=imageUrl%>/${pList.pImage}" width="300px" height="300px">
 			<h3>${pList.proName}</h3>
 			<p>${pList.description}</p>
 			<p>${pList.unitPrice}원</p>

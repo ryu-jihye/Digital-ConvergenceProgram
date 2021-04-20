@@ -16,7 +16,7 @@
 
 <% String imageUrl = request.getContextPath()+"/upload"; %>
 
-<img alt="ddd" src="<%=imageUrl%>/${pList.pImage}" width="300px" height="300px">
+<img alt="img" src="<%=imageUrl%>/${pList.pImage}" width="500px" height="500px">
 <div class="container">
 	<form action="addProductProc.jsp" method="post" name="newProduct" class="form-horizontal" enctype="multipart/form-data">
 		<div class="form-group row">

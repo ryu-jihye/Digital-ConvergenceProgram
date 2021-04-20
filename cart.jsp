@@ -17,8 +17,9 @@
 </head>
 <body>
 <jsp:include page="menu.jsp"/>
-<% 
-String cartId = session.getId(); %>
+<%
+	String cartId = session.getId();
+%>
 	<div class="jumbotron">
 		<div class="container">
 			<h1 class="display-3">장바구니</h1>
@@ -32,8 +33,8 @@ String cartId = session.getId(); %>
 					<td align="left"><a href="deleteCart.jsp?cartId=<%=cartId%>"
 						class="btn btn-danger">삭제하기</a>
 					<td align="right"><a
-						href="addCart2.jsp?cartId=<%=cartId%>"
-						class="btn btn-success">주문하기</a>
+						href="order/shippingInfo.jsp?cartId=<%=cartId%>"
+						class="btn btn-success">주문하기</a></td>
 				</tr>
 			</table>
 		</div>
@@ -55,15 +56,15 @@ String cartId = session.getId(); %>
 
 			<%
 				request.setCharacterEncoding("UTF-8");
-				int sum = 0;
-			ArrayList<Products> cartList = (ArrayList<Products>) session.getAttribute("cartList");
-			if (cartList == null) {
-				cartList = new ArrayList<Products>();
-			}
-			for (int i = 0; i < cartList.size(); i++) {
-				Products product = cartList.get(i);
-				int total = product.getUnitPrice() * product.getQuantity();
-				sum += total; //가격
+						int sum = 0;
+					ArrayList<Products> cartList = (ArrayList<Products>) session.getAttribute("cartList");
+					if (cartList == null) {
+						cartList = new ArrayList<Products>();
+					}
+					for (int i = 0; i < cartList.size(); i++) {
+						Products product = cartList.get(i);
+						int total = product.getUnitPrice() * product.getQuantity();
+						sum += total; //가격
 			%>
 			<tr>
 				<td><%=product.getProId()%> - <%=product.getProName()%></td>
