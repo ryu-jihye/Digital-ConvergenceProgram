@@ -19,6 +19,10 @@ pstmt.setString(3, member.getPhoneNo());
 pstmt.setString(4, member.getAddress());
 pstmt.setString(5, member.getEmail());
 pstmt.setString(6, member.getUserId());
-pstmt.execute();
+boolean result=pstmt.execute();
+
+if(result==true){
+	      response.sendRedirect(request.getContextPath()+"/member/resultMember.jsp?msg=0");
+	   }
 %>
 <jsp:forward page="updateResult.jsp"/>
