@@ -1,64 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <title>Insert title here</title>
 </head>
 <body>
-<c:set var="contextPath" value="<%=request.getContextPath() %>"/>
-<c:set var="vo" value="${vo}"/>
-<jsp:include page="/menu.jsp"/>
-
-<div class="jumbotron">
-	<div class="container">
-		<h1 class="display-3">게시글 입력</h1>
-	</div>
-</div>
 <div class="container">
-<form name="newWrite" action="updateProc.do" class="form-horizontal" 
-method="post" onsubmit="return checkForm()">
-	<div class="form-group row">
-		<label class="col-sm-2 control-label">회원ID</label>
-		<div class="col-sm-3">
-			<input type="text" name="userId" class="form-control" value="${vo.userId}" readonly="readonly">
-		</div>
-	</div>
-	<div class="form-group row">
-		<label class="col-sm-2 control-label">제목</label>
-		<div class="col-sm-7">
-			<input type="text" name="title" class="form-control" value="${vo.title}">
-		</div>
-	</div>
-	<div class="form-group row">
-		<label class="col-sm-2 control-label">내용</label>
-		<div class="col-sm-7">
-		<textarea class="form-control" rows="7" name="content" >${vo.content}</textarea>
-		</div>
-	</div>
-	<div class="form-group row">
-		<div class="col-sm-offset-2 col-sm-10">
-		<c:if test="${memberId==vo.userId}">
-			<input type="submit" class="btn btn-success" value="수정">
-			<a href="${contextPath}/board/deleteProc.do?boardNo=${vo.boardNo}" class="btn btn-success">삭제</a>
-		</c:if>	
-			<a href="${contextPath}/board/listProc.do" class="btn btn-primary">목록</a>
-		</div>
-	</div>
-</form>
-</div>
-<jsp:include page="/footer.jsp"/>
+		<div class="row">
+			<table width="100%">
+				<tr>
+					<!-- cartId 만들어야 함 -->
+					<td align="left"><a href="deleteCart.jsp?cartId=<%=cartId%>"
+						class="btn btn-danger">삭제하기</a>
+					<td align="right"><a
+						href="order/shippingInfo.jsp?cartId=<%=cartId%>"
+						class="btn btn-success">주문하기</a></td>
+				</tr>
+			</table>
+		</div
 </body>
-<script type="text/javascript">
-function checkForm(){
-	if(!document.newWrite.title.value){
-		alert("제목을 입력하세요");
-	}
-	if(!document.newWrite.content.value){
-		alert("내용을 입력하세요");
-	}
-}
-</script>
 </html>

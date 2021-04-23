@@ -1,16 +1,16 @@
-package org.bean;
+package com.conan.vo;
 
 public class BoardVO {
-
-	private int boardNo;
-	private String userId;
-	private String title;
-	private String content;
-	private String regDate;
-	private int hit;
+	private int boardNo; //1번부터 1씩 증가, 기본키
+	private String userId; //작성자는 아이디로
+	private String title; //게시글 제목
+	private String content; //게시글 내용
+	private String regDate; //등록일
+	private int hit; //조회수
 	
-	public BoardVO() {}
-
+	//기본 생성자 
+	public BoardVO() {};
+	
 	public BoardVO(int boardNo, String userId, String title, String content, String regDate, int hit) {
 		super();
 		this.boardNo = boardNo;
@@ -19,13 +19,7 @@ public class BoardVO {
 		this.content = content;
 		this.regDate = regDate;
 		this.hit = hit;
-	}
-
-	public BoardVO(String userId, String title, String content) {
-		super();
-		this.userId = userId;
-		this.title = title;
-		this.content = content;
+		
 	}
 
 	public int getBoardNo() {
@@ -75,6 +69,7 @@ public class BoardVO {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
+	
 	
 	
 	

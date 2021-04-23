@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:set var="contextPath" value="<%=request.getContextPath()%>"/>
 <c:set var="bList" value="${bList}"/>
 <jsp:include page="../menu.jsp"/>
 <div class="jumbotron">
@@ -28,8 +27,7 @@
 			</tr>
 			<c:forEach var="b" items="${bList}">
 			<tr>
-				<td>${b.boardNo}</td><td><a href="${contextPath}/board/viewProc.do?boardNo=${b.boardNo}">${b.title}</a></td>
-				<td>${b.regDate}</td>
+				<td>${b.boardNo}</td><td>${b.title}</td><td>${b.regDate}</td>
 				<td>${b.hit}</td><td>${b.userId}</td>
 			</tr>
 			</c:forEach>
@@ -46,8 +44,7 @@
 				<input type="submit" id="btnAdd" class="btn btn-danger" value="검색">
 				</td>
 				<td width="100%" align="right">
-					<a href="writeFrm.jsp" 
-					onclick="checkFrm();return false" class="btn btn-info">&laquo;글쓰기</a>
+					<a href="#" onclick="checkFrm();return false" class="btn btn-info">&laquo;글쓰기</a>
 				</td>
 			</tr>
 		</table>
@@ -56,13 +53,4 @@
 </div>
 <jsp:include page="../footer.jsp"/>
 </body>
-<script type="text/javascript">
-function checkFrm(){
-	if(${memberId==null}){
-		alert("로그인 해주세요");
-		return false;
-	}
-	location.href="<%=request.getContextPath()%>/board/writeFrm.jsp";
-}
-</script>
 </html>
