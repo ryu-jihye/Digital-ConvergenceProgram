@@ -1,29 +1,67 @@
-package com.conan.vo;
+package org.bean;
 
 public class Products {
-	
+
 	private String proId;
 	private String proName;
-	private Integer unitPrice;
+	private int unitPrice;
 	private String description;
 	private String manufacturer;
 	private String category;
-	private Integer noOfStock;
+	private int noOfStock;
+	private String pImage;
+	private int quantity;
 	
+	public Products(){}
+	
+	
+
 	public Products(String proId, String proName, int unitPrice, String description, String manufacturer,
-	         String category, int noOfStock) {
-	      super();
-	      this.proId = proId; //상품 아이디
-	      this.proName = proName; //상품명
-	      this.unitPrice = unitPrice; //상품가격
- 	      this.description = description; //설명
-	      this.manufacturer = manufacturer; //제조사
-	      this.category = category; //분류
-	      this.noOfStock = noOfStock; //재고여부
-	   }
+			String category, int noOfStock) {
+		super();
+		this.proId = proId;
+		this.proName = proName;
+		this.unitPrice = unitPrice;
+		this.description = description;
+		this.manufacturer = manufacturer;
+		this.category = category;
+		this.noOfStock = noOfStock;
+	}
+
 	
-	public Products() {}
-	
+
+
+	public Products(String proId, String proName, int unitPrice, String description, String manufacturer,
+			String category, int noOfStock, String pImage, int quantity) {
+		super();
+		this.proId = proId;
+		this.proName = proName;
+		this.unitPrice = unitPrice;
+		this.description = description;
+		this.manufacturer = manufacturer;
+		this.category = category;
+		this.noOfStock = noOfStock;
+		this.pImage = pImage;
+		this.quantity = quantity;
+	}
+
+
+
+	public Products(String proId, String proName, int unitPrice, String description, String manufacturer,
+			String category, int noOfStock, String pImage) {
+		super();
+		this.proId = proId;
+		this.proName = proName;
+		this.unitPrice = unitPrice;
+		this.description = description;
+		this.manufacturer = manufacturer;
+		this.category = category;
+		this.noOfStock = noOfStock;
+		this.pImage = pImage;
+	}
+
+
+
 	public String getProId() {
 		return proId;
 	}
@@ -40,11 +78,11 @@ public class Products {
 		this.proName = proName;
 	}
 
-	public Integer getUnitPrice() {
+	public int getUnitPrice() {
 		return unitPrice;
 	}
 
-	public void setUnitPrice(Integer unitPrice) {
+	public void setUnitPrice(int unitPrice) {
 		this.unitPrice = unitPrice;
 	}
 
@@ -72,13 +110,31 @@ public class Products {
 		this.category = category;
 	}
 
-	public Integer getNoOfStock() {
+	public int getNoOfStock() {
 		return noOfStock;
 	}
 
-	public void setNoOfStock(Integer noOfStock) {
+	public void setNoOfStock(int noOfStock) {
 		this.noOfStock = noOfStock;
 	}
 
+	public String getpImage() {
+		return pImage;
+	}
+
+	public void setpImage(String pImage) {
+		this.pImage = pImage;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
+	
+	
 	
 }
