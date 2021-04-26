@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	//사용자가 숫자를 입력 받아 양수, 음수, 0을 구분하는 프로그램 만들기
+	const input= Number(prompt('숫자를 입력하세요.', '숫자'));
+	
+	if(input >= 0) {
+		alert('양수입니다.');
+	} else if(input == 0) {
+		alert('0입니다.');
+	} else if(input < 0) {
+		alert('음수입니다.');
+	}
+</script>
+</body>
+</html>
