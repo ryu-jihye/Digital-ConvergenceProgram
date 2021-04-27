@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var city = new Array("seoul", "busan", "incheon");
+function printArr() {
+	if(city instanceof Array) {
+		document.write("배열 객체가 생성되었습니다.<p/>");
+		var i;
+		for(i=0; i<city.length; i++) {
+			document.write("배열 데이터 [" + i + "] = " + city[i] + "<br>");
+		}
+		else {
+			docuemnt.write("배열 객체가 아닙니다.<br>");
+			document.wirte("데이터 : " + city + "<br>");
+		}
+		printArr();
+		document.write("<p/> city 변수 타입 : " + typeof city + "<br>");
+		document.write("배열 객체 확인 결과 : "+ Array.isArray(city) + "<br>");
+	}
+	var i;
+	for(i=0; i<city.length; i++) {
+		document.write("배열 데이터 [" + i + "] = " + city[i] + "<br>");
+	}
+}
+printArr()
+</script>
+</body>
+</html>

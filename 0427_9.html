@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	var city = ["Seoul", "Busan", "Incheon"]; //배열 리터럴
+	function printArr() {
+		var i;
+		for(i=0; i<city.length; i++) {
+			document.write("배열 데이터[" + i + "] =" + city[i] + "<br>");
+		}
+	}
+	printArr();
+	
+	var city = [];
+	city[0] = "Seoul";
+	city[1] = "Busan";
+	city[2] = "Incheon";
+	function printArr() {
+		var i;
+		for(i=0; i<city.length; i++) {
+			document.write("배열 데이터[" + i + "] =" + city[i] + "<br>");
+		}
+	}
+</script>
+</body>
+</html>

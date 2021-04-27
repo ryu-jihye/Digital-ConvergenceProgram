@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var text1 = "함수 선언 전 호출 에러";
+var text2 = "함수 선언 후 호출 에러";
+	//printMsg(text1); //함수 선언 전 호출 에러
+	var printMsg=function(msg) {//함수 선언 객체 선언
+		document.write("함수 호출 메시지 :" + msg + "<br>");
+	}
+	printMsg(text2);
+</script>
+</body>
+</html>

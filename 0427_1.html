@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<button conclick="prinMsg('conan', 10)">학생 정보</button>
+<body>
+<script>
+	var text1 ="함수 선언 전 호출";
+	var test2 ="함수 선언 후 호출";
+	printMsg(text1); //함수 선언 전 호출
+	function prinMsg(msg) {//함수 선언
+		document.write("함수 호출 메시지 : " + msg + "<br>");
+	}
+	printMsg(text2); //함수 선언 전 호출
+	
+	function printMsg(name, age) {
+		document.write("학생 이름 :" + name + "</b><br>");
+		document.write("학생 나이 :" + age + "</b><br>");
+	}
+</script>
+</body>
+</html>

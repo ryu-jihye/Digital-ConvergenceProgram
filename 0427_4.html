@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	function add(name, n) {
+		document.write(name + "학생이 1부터" + n + "까지 덧셈 수행<br>");
+		var sum = 0;
+		for(var i=1; i<=n; i++) {
+			sum += i;
+		}
+		return sum;
+	}
+	document.write("결과 : " + add('코난', 10) + "<p/>");
+	document.write("결과 : " + add('장미', 100) + "<p/>");
+
+	function.add(x, y) {
+		return x+y;
+	}
+	var calSum=add; //함수를 변수에 할당
+	var addUp=add; //함수를 변수에 할당
+	document.write("결과 값: " + calSum(5, 10) + "<br>");
+	document.write("결과 값 : " + addUp(5, 10) + "<br>"); 
+</script>
+</body>
+</html>

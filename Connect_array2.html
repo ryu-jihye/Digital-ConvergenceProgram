@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p id="msg1"></p>
+<p id="msg2"></p>
+<p id="msg3"></p>
+<script>
+//메소드 사용해서 출력
+	var obj= {
+		m1: function() {
+			return "Hello Sonata";
+		},
+		m2: function() {
+			var result = a;
+			retirm result;
+		},
+		m3: function(a, b) {
+			var result = a+b;
+			return result;
+		}
+	};
+	document.getElementById("msg1").innerHTML=obj.m1();
+	document.getElementById("msg2").innerHTML=obj.m2(100);
+	document.getElementById("msg3").innerHTML=obj.m3(100, 200);
+</script>
+</body>
+</html>

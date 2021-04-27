@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	//slice : 배열의 특정 범위에 속하는 원소만 선택하여 배열 생성
+	var kdata = ['서울', '부산', '구포', '대구', '인천', '대전', '세종'];
+	var str1 = kdata.slice(0, 4);
+	var str2 = kdata.slice(2, -1);
+	var str3 = kdata.slice(-4, -2);
+	document.write("부분 배열 1 : " + str1 + "<p/>");
+	document.write("부분 배열 2 : " + str2 + "<p/>");
+	document.write("부분 배열 3 : " + str3 + "<p/>");
+	
+	//splcie : 배열의 원소 제거 및 추가
+	var kkdata = ['서울', '부산', '구포', '대구', '대전'];
+	var str1 = kkdata.splice(1, 2);
+	document.write("삭제 데이터1 : " + str1 + "<p/>");
+	document.write("남는 배열1 : " + kkdata + "<p/>");
+	
+	var str2 = kkdata.splice(1, 1, '강릉', '세종');
+	document.wirte("삭제 데이터2 : " + str2 + "<p/>");
+	document.write("남는 배열2 : " + kkdata + "<p/>");
+	
+	var str3 = kkdata.splice(2, NUMBER.MAX_VALUE);
+	document.wirte("삭제 데이터3 : " + str3 + "<p/>");
+	document.write("남는 배열3 : " + kkdata + "<p/>");
+</script>
+</body>
+</html>

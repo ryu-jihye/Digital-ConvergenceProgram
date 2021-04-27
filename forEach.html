@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	var kdata = ['서울', '부산', '청주', '대구'];
+	function printArr(item, index) {
+		document.write("배열 데이터 [" + index + "] : " + item + "<br>");
+	}
+	kdata.forEach(printArr);
+	
+	var data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	var sum = 0;
+	function addArr(value) {
+		sum += value;
+	}
+	data.forEach(addArr);
+	document.write("배열 데이터 합 : " + sum + "<p/>");
+</script>
+</body>
+</html>

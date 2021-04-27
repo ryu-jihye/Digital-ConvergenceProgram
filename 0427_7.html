@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	function add() {
+		var i, sum = 0;
+		for(i=0; i<arguments.length; i++) {
+			sum = sum + arguments[i];
+		}
+		document.write("수행 결과 : " + sum + "<p/>");
+	}
+	add(2, 3);
+	add(2, 3, 4);
+	add(4, 5, 6, 7, 8);
+	add(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+</script>
+</body>
+</html>

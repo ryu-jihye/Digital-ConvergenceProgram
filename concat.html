@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	var city01 = ["서울", "부산", "대전"];
+	var city02 = ["대구", "광주", "인천"];
+	var city03= ["전주", "부여", "세종"];
+	
+	var data1 = city01.concat("수원", "오산");
+	var data2 = city01.concat(city02);
+	var data3 = city01.concat(city03, city02);
+	
+	document.write("결과 1" + data1 + "<p/>");
+	document.write("결과 2" + data2 + "<p/>");
+	document.write("결과 3" + data3 + "<p/>");
+</script>
+</body>
+</html>

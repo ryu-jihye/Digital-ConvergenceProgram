@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	var data = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+	document.write("배열 : " + data + "<p/>");
+	var rdata = data.reverse();
+	document.write("결과 : " + rdata + "<p/>");
+	
+	var ndata1 = [19, 38, 67, 26, 55, 24, 53, 12, 31];
+	var ndata2 = [132.2, 41, 123, 45, 1234, 6, 29, 4567];
+	var edata = ['Apple', 'Html', 'Game', 'Computer', 'Java'];
+	var kdata = ['서울', '부산', '대구', ' 구포', '인천'];
+	document.write('수치 정렬1 :' + ndata1.sort() + "<p/>");
+	document.write('수치 정렬2 :' + ndata2.sort() + "<p/>");
+	document.write('수치 정렬1 :' + ndata1.sort(function(a, b){return a= b;}) + "<p/>");
+	document.write('영문 정렬 :' + edata.sort() + "<p/>");
+	document.write('한글 정렬 :' + kdata.sort() + "<p/>");
+</script>
+</body>
+</html>
