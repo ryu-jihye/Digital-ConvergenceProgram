@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	var regExp = /^j/igm;
+	var string = 'Javasrcipt\njQuery\nAjax';
+	var output = string.replace(regExp, '+$&+');
+	alert(output);
+</script>
+<script>
+	function checkFrom() {
+		var str = document.frm.name.value;
+		var regExp = /^[a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+		if(!regExp.text(str)) {
+			alert("이름을 숫자로 시작할 수 없음!");
+			return;
+		}
+	}
+</script>	
+<form name="frm" action="member/resultMemebr.jsp" method="post">
+<p>이름 : <input type="text" name="regExpregExp">
+<p><input type="button" value="제출" onclick="checkForm()">
+</body>
+</html>

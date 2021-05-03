@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	var regExp = /script/; //출력하고 싶은 변수
+	var string = 'Javascript jquery Ajax';//출력하고 싶은 변수
+	var output = regExp.text(string);
+	alert(output);
+	
+	//RegExp 객체 메소드
+	console.log(regExp.exec(string)); 
+	console.log(regExp.test(string)); 
+	
+	//String 객체 메소드
+	console.log(regExp.match(string))
+	console.log(regExp.replace(string, 'is'));
+	console.log(regExp.search(string));
+	console.log(regExp.split(string));
+	
+</script>
+<script>
+	function checkForm() {
+		var regExp = /Java/i; //var regExp = new RegExp('java', 'i')
+		var str = document.frm.title.value;
+		var result = regExp.exec(str);
+		alert(result[0]);
+	}
+	
+	//RegExp 객체 메소드
+	console.log(regExp.exec(str)); 
+	console.log(regExp.test(str)); 
+	
+	//String 객체 메소드
+	console.log(regExp.match(str))
+	console.log(regExp.replace(str, 'is'));
+	console.log(regExp.search(str));
+	console.log(regExp.split(str));
+</script>
+<form name="frm" action="member/resultMemebr.jsp" method="post">
+<p>제목 : <input type="text" name="regExpregExpㄴ">
+<p><input type="button" value="제출" onclick="checkForm()">
+</body>
+</html>

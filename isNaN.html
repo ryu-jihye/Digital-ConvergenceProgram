@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+function checkForm() {
+	if(!IsNaN(document.frm.name,value.substr(0, 1))) {
+		//숫자인 경우 false, index(0)의 위치 확인
+		alert("이름은 숫자로 시작할 수 없음");
+		document.frm.name.select();
+	}
+}
+</script>
+</body>
+</html>

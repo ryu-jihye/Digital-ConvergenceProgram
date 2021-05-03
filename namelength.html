@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 아이디 비번 길이 확인하기 -->
+<script>
+function checkForm() {
+	if(document.frm.name.value.length<6 || document.frm.name.value.length>12) {
+		alert("이름을 6~12자 이내로 입력하세요");
+		document.frm.name.select();
+	}
+}
+</script>
+<form name="loginFrm" action="member/resultMemebr.jsp" method="post">
+<p>아이디 : <input type="text" name="userId">
+<p>비밀번호 : <input type="password" name="userPwd">
+<p><input type="button" value="전송" onclick="checkLogin()">
+</body>
+</html>

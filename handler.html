@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- <script type="text/javascript">
+	function 핸들러 함수() {
+		var str = document.폼 이름.입력항목 이름.value;
+	}
+</script> -->
+
+<script>
+function checkForm() {
+	alert("이름은 "+document.frm.name.value+"입니다.");		
+}
+</script>
+<form name="frm">
+	<p>이름:<input type="text" name="name">
+	<input type="submit" value="전송" onclick="checkForm()">
+</form>
+</body>
+</html>

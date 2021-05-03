@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+function checkLogin() {
+	var form = document.loginFrm;
+	if(form.userid.value==""){
+		alert("아이디를 입력해주세요");
+		form.userId.focus();
+		refurn false;
+	} else if(form.userPwd.value==""){
+		alert("비밀번호를 입력해주세요");
+		form.userPwd.focus();
+		return false;
+	}
+	form.submit;
+}
+</script>
+<form name="loginFrm" action="member/resultMemebr.jsp" method="post">
+<p>아이디 : <input type="text" name="userId">
+<p>비밀번호 : <input type="password" name="userPwd">
+<p><input type="button" value="전송" onclick="checkLogin()">
+</form>
+</body>
+</html>

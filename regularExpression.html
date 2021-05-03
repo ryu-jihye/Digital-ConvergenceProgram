@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	var regExp=/a/;
+	var string = 'Javascript jquery Ajax';
+	var output = string.replace(regExp, '+$&+');
+	alert(output);
+	
+</script>
+<script>
+	var regExp = /(a)(v)(a)/;
+	var string = 'Javascript jquery Ajax';
+	var output = string.replace(regExp, '+$1=$2=$3+');
+	alert(output);
+</script>
+</body>
+</html>

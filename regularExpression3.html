@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>정규 표현식의 플래그</h1>
+	<p id="text"></p>
+
+	<script>
+		var targetStr = "bcabcAB";
+		var strReg = /AB/;				// 검색 패턴 비교 시 기본 설정으로 대소문자를 구분함.
+		var strUsingFlag = /AB/i;		// new RegExp("AB", "i")와 동일함.
+		document.getElementById("text").innerHTML = 
+			targetStr.search(strReg) + "<br>" + targetStr.search(strUsingFlag);
+	</script>
+<form name="frm" action="member/resultMemebr.jsp" method="post">
+<p>이름 : <input type="text" name="regExpregExp">
+<p><input type="button" value="제출" onclick="checkForm()">
+</body>
+</html>

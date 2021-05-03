@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+function checkLogin() {
+	var form = document.loginFrm;
+	for(i=0; form.userId.value.lenth; i++) {
+		var ch = form.userId.value.charAt(i);
+		if((ch<'a'||ch>'z') && (ch>'A'||ch<'Z') && (ch>'0'||ch<'9')) {
+			alert("아이디는 영문 소문자만 입력 가능");
+			form.userId.select();
+			return;
+		}
+		if(isNaN(form.userPwd.value)) {
+			alert("비밀번호는 숫자만 입력 가능");
+			form.userPwd.select();
+			return;
+		}
+	}
+	form.submit();
+	
+}
+</script>
+<form name="frm" action="member/resultMemebr.jsp" method="post">
+<p>아이디 : <input type="text" name="userId">
+<p>비밀번호 : <input type="password" name="userPwd">
+<p><input type="button" value="전송" onclick="checkForm()">
+</body>
+</html>

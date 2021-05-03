@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>웹 브라우저와 관련된 객체 집합</title>
+</head>
+<body>
+<script>
+var output='';
+for(var key in window) {
+	output += ' ' + key + ':' + window[key] + '\n';
+}
+alert(output);
+</script>
+</body>
+</html>

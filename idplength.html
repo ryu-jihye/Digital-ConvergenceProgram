@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+function checkAll(userId, userPwd) {
+	 /* var userID = document.getElementById("userID").value;
+	 var userPwd = document.getElementById("userPwd").value; */
+
+if(userId.value.length <6 || userID.value.length>12) {
+	alert("이름을 4~12자 이내로 입력하세요");
+	document.f.password.focus();
+	document.frm.name.select();
+	return false;
+}
+if(userPwd.value.length <6 || userPwd.value.length>12){
+    alert("비밀번호를 4~12자까지 입력해주세요.")
+    document.f.password.focus();
+    document.f.password.select();
+    return false;
+}
+</script>
+
+<form name="frm" action="member/resultMemebr.jsp" method="post">
+<p>아이디 : <input type="text" name="userId">
+<p>비밀번호 : <input type="password" name="userPwd">
+<p><input type="button" value="전송" onclick="checkForm()">
+</body>
+</html>
