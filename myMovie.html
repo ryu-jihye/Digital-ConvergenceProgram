@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="myMovieCss.css" rel="stylesheet" type="text/css" />
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+   <hgroup id="title">
+      <h1 data-name="information">Information</h1>
+      <h1 data-name="character">Character</h1>
+      <h1 data-name="multimedia">Multimedia</h1>
+   </hgroup>
+   <section id="container">
+      <div id="main" data-name="main" class="active">
+      <img src="images/5.jfif" width="100%"/>
+      </div>
+      <div id="information" data-name="information">
+      <img src="images/1.jfif" width="40%"/>
+      <div class="description">
+      <p>fhfpq dlqtna fhfpq dlqtna amet ,asdasll ddfhfpq dlqtna fhfpq dlqtna amet ,asdasll ddfhfpq dlqtna fhfpq dlqtna amet ,asdasll ddfhfpq dlqtna fhfpq dlqtna amet ,asdasll ddfhfpq dlqtna fhfpq dlqtna amet ,asdasll ddfhfpq dlqtna fhfpq dlqtna amet ,asdasll dd</p>
+      </div></div>
+      <div id="character" data-name="character">
+      <a href="#">Left Button</a><a href="#">Right Button</a>
+      <article class="show">
+      <h1>blossom</h1>
+      <img src="images/1.jfif">
+      <p>blossom is blossom girl with superpower has perfume powerfurp girl. today is mblablabla</p>
+      </article>
+      <article class="show">
+      <h1>blossom</h1>
+      <img src="images/2.jfif">
+      <p>blossom is blossom girl with superpower has perfume powerfurp girl. today is mblablabla</p>
+      </article>
+      <article class="show">
+      <h1>blossom</h1>
+      <img src="images/4.png">
+      <p>blossom is blossom girl with superpower has perfume powerfurp girl. today is mblablabla</p>
+      </article>
+      </div>
+      
+      <div id="multimedia" data-name="multimedia"><video></video></div>
+   </section>
+   <nav id="main_navigation">
+      <ul>
+         <li><a href="#" data-target="information">Movie Info</a></li>
+         <li><a href="#" data-target="character">Character</a></li>
+         <li><a href="#" data-target="multimedia">Multimedia</a></li>
+         <li><a href="#">Download</a></li>
+      </ul>
+   </nav>
+   
+   <script>
+   $(document).ready(function(){
+      //네비게이션 버튼 클릭
+      $('#main_navigation a').click(function(){
+         var target =$(this).attr('data-target');
+         alert(target);
+         $(':not([data-name='+target+'])').removeClass('active');
+         $('[data-name='+target+']').addClass('active');
+      });
+      //캐릭터 이동 버튼
+      var currentPosition=1;
+      $('#character>a:nth-child(1)').click(function(){
+         currentPosition-=1;
+         if(currentPosition<1){
+            currentPosition=3;
+         }
+         $('article').removeClass('show');
+         $('article:nth-of-type('+currentPosition+')').addClass('show');
+      });
+      $('#character>a:nth-child(2)').click(function(){
+         currentPosition+=1;
+         if(currentPosition>3){
+            currentPosition=1;
+         }
+         $('article').removeClass('show');
+         $('article:nth-of-type('+currentPosition+')').addClass('show');
+      });
+   });
+   </script>
+</body>
+</html>
